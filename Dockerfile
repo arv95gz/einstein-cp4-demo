@@ -2,10 +2,9 @@ FROM sagemath/sagemath:10.7
 
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    ca-certificates git cmake g++ libgmp-dev libmpfr-dev \
+    ca-certificates git cmake build-essential libgmp-dev libmpfr-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Pin a CAPD release, rather than following a changing development branch.
 RUN git clone --depth 1 --branch v6.0.0 https://github.com/CAPDGroup/CAPD.git /opt/capd-source \
     && cmake -S /opt/capd-source -B /opt/capd-source/build \
        -DCMAKE_INSTALL_PREFIX=/opt/capd \
