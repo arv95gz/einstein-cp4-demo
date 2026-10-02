@@ -24,5 +24,14 @@ for name in ("jupyter", "jupyter-lab", "jupyter-notebook"):
 print("SageMath Jupyter applications are available for Codespaces.")
 PY
 
+# GitHub's Jupyter launcher also needs Python on the system application path.
+scripts="$(sage -python -c 'import sysconfig; print(sysconfig.get_path("scripts"))')"
+for app in python python3 jupyter jupyter-lab jupyter-notebook; do
+    target="/usr/local/bin/$app"
+    if [ ! -e "$target" ]; then
+        sudo -n ln -s "$scripts/$app" "$target"
+    fi
+done
+
 # Check the real workspace copy, including compilation of the CAPD driver.
 sage -python verify_runtime.py
