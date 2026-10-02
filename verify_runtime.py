@@ -10,9 +10,12 @@ notebook = json.loads(Path('demo.ipynb').read_text(encoding='utf-8'))
 assert os.getuid() == 1000
 specs = KernelSpecManager().find_kernel_specs()
 assert 'sagemath' in specs, f'SageMath kernel not registered: {specs}'
-for index in range(1, 9):
-    exec(compile(preparse(''.join(notebook['cells'][index]['source'])),
-                 f'demo-cell-{index}', 'exec'), globals())
+definition_cells = [cell for cell in notebook['cells']
+                    if 'cap-definition' in cell.get('metadata', {}).get('tags', [])]
+assert len(definition_cells) == 8, 'Expected the eight scientific definition cells'
+for index, cell in enumerate(definition_cells, start=1):
+    exec(compile(preparse(''.join(cell['source'])),
+                 f'demo-definition-{index}', 'exec'), globals())
 assert callable(krawczyk_check)
 assert Path(DRIVER_BIN).is_file()
 print('SageMath kernel and multiprecision CAPD driver compile successfully.')
