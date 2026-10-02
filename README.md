@@ -4,6 +4,30 @@ This is a presentation demo of the n = 4 calculation from
 *Inhomogeneous Einstein metrics on complex projective spaces*, by
 Gonzalo Cao-Labora and Alberto Rodríguez-Vázquez.
 
+## GitHub Codespaces for a presentation
+
+[Create a Codespace for this notebook](https://codespaces.new/arv95gz/einstein-cp4-demo)
+
+Before creating it, set GitHub **Settings → Codespaces → Default idle timeout**
+to **120 minutes**, and select **JupyterLab** as the editor. Choose a **2-core**
+machine. The first build installs the same SageMath/CAPD environment used below;
+allow time for this before rehearsing. Open `demo.ipynb` and run with Shift+Enter.
+
+For later visits, resume the existing environment from
+[Your Codespaces](https://github.com/codespaces), rather than creating another.
+Start it shortly before the talk, check that the SageMath kernel is ready, and
+leave it running through the presentation. Saved notebook files survive a stop;
+kernel variables do not. Stop the Codespace after use to conserve compute time.
+
+Personal GitHub Free accounts currently include 120 core-hours per month
+(60 hours on a 2-core machine) and 15 GB-month of storage. Idle running time uses
+the compute allowance, and stopped Codespaces still use storage allowance.
+Without a payment method, usage is blocked when the free quota is exhausted.
+See [GitHub's current billing rules](https://docs.github.com/en/billing/concepts/product-billing/github-codespaces).
+This configuration does not purchase hardware or change billing settings.
+
+## Binder alternative
+
 [Open the notebook and run each cell yourself](https://mybinder.org/v2/gh/arv95gz/einstein-cp4-demo/main?urlpath=lab%2Ftree%2Fdemo.ipynb)
 
 Opening that link launches a temporary Binder computer and opens JupyterLab.

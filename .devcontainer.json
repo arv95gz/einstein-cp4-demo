@@ -1,0 +1,22 @@
+{
+  "name": "Einstein CP4 presentation (SageMath and CAPD)",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "remoteUser": "sage",
+  "overrideCommand": true,
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "4gb"
+  },
+  "containerEnv": {
+    "PATH": "/home/sage/.local/bin:${containerEnv:PATH}"
+  },
+  "postCreateCommand": "bash codespaces-setup.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-toolsai.jupyter"]
+    }
+  }
+}
