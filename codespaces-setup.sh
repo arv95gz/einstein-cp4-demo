@@ -8,7 +8,7 @@ import sysconfig
 from pathlib import Path
 
 scripts = Path(sysconfig.get_path("scripts"))
-user_bin = Path.home() / ".local" / "bin"
+user_bin = Path("/home/sage/sage/local/bin")
 user_bin.mkdir(parents=True, exist_ok=True)
 for name in ("jupyter", "jupyter-lab", "jupyter-notebook"):
     source = scripts / name
