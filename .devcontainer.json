@@ -10,7 +10,7 @@
     "cpus": 2,
     "memory": "4gb"
   },
-  "containerEnv": {
+  "remoteEnv": {
     "PATH": "/home/sage/.local/bin:${containerEnv:PATH}"
   },
   "postCreateCommand": "bash codespaces-setup.sh",
